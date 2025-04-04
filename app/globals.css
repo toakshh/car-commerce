@@ -114,9 +114,15 @@
 
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    @apply outline-ring/50 m-0 p-0 box-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground max-h-screen min-h-screen scroll-smooth ;
+  }
+  ::-webkit-scrollbar {
+    @apply w-2;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply rounded-full border border-gray-100 bg-blue-200;
   }
 }

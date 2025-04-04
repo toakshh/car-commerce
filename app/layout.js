@@ -18,13 +18,13 @@ export default function RootLayout({ children }) {
     <ClerkProvider>
       <html lang="en">
         <body
-          className={`${inter.className} antialiased`}
+          className={`${inter.className} antialiased max-h-screen`}
         >
           <Header />
-          <main className="min-h-screen">
+          <main className="flex min-h-full max-h-screen overflow-y-scroll overflow-x-hidden flex-col ">
             {children}
           </main>
-          <footer className="bg-blue-100 py-12">
+          <footer className="bg-blue-100 py-8">
             Made in Next.js with ❤️
           </footer>
         </body>
