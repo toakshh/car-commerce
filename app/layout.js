@@ -2,6 +2,7 @@ import { Geist, Geist_Mono, Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import { ClerkProvider } from "@clerk/nextjs";
+import { Toaster } from "sonner";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -18,13 +19,14 @@ export default function RootLayout({ children }) {
     <ClerkProvider>
       <html lang="en">
         <body
-          className={`${inter.className} antialiased max-h-screen`}
+          className={`${inter.className} antialiased`}
         >
           <Header />
-          <main className="flex min-h-full max-h-screen overflow-y-scroll overflow-x-hidden flex-col ">
+          <main className="min-h-screen">
             {children}
           </main>
-          <footer className="bg-blue-100 py-8">
+          <Toaster richColors />
+          <footer className="bg-blue-100 py-8 px-10">
             Made in Next.js with ❤️
           </footer>
         </body>
