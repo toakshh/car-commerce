@@ -5,9 +5,11 @@ import Link from 'next/link'
 import React from 'react'
 import { Button } from './ui/button'
 import { ArrowLeft, CarFront, Heart, Layout } from 'lucide-react'
+import { checkUser } from '@/lib/checkUser'
 
 const Header = async ({isAdminPage=false}) => {
-  const isAdmin = false
+  const user = await checkUser()
+  const isAdmin = user?.role === "ADMIN";
   return (
     <header className='sticky top-0 w-full bg-white/80 backdrop-blur-md z-10 border-b'>
         <nav className='mx-auto px-4 py-4 flex items-center justify-between'>
