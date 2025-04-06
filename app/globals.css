@@ -130,6 +130,9 @@
   button{
     @apply cursor-pointer select-none;
   }
+  image, images{
+    @apply select-none;
+  }
 }
 @layer utilities {
   .gradient-title {

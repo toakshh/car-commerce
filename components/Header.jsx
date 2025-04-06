@@ -11,7 +11,7 @@ const Header = async ({isAdminPage=false}) => {
   const user = await checkUser()
   const isAdmin = user?.role === "ADMIN";
   return (
-    <header className='sticky top-0 w-full bg-white/80 backdrop-blur-md z-10 border-b'>
+    <header className='fixed top-0 w-full bg-white/80 backdrop-blur-md z-10 border-b'>
         <nav className='mx-auto px-4 py-4 flex items-center justify-between'>
             <Link href={isAdminPage ? "/admin" : "/"} className='flex' >
                 {/* <h1 className='text-4xl font-bold'>CarVerse</h1> */}
@@ -45,12 +45,12 @@ const Header = async ({isAdminPage=false}) => {
                         </Button>
                       </Link>
                     )}
-                    <a href="/saved-cars">
+                    {!isAdminPage && <a href="/saved-cars">
                       <Button className="flex items-center gap-2">
                         <Heart size={18} />
                         <span className="hidden md:inline">Saved Cars</span>
                       </Button>
-                    </a>
+                    </a>}
                     {isAdmin && (
                       <Link href="/admin">
                         <Button variant="outline" className="flex items-center gap-2">
